@@ -32,10 +32,33 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
-}
+  String temp = new String();
+  String finalWord = new String();
+  for (int i = 0; i < word.length(); i ++)
+  {
+    if (word.charAt(i) != ' ')
+    {
+      temp = temp + word.charAt(i);
+    }
+  }
+    for (int i = 0; i < word.length(); i ++)
+    {
+      if (Character.isLetter(word.charAt(i)) ==  true)
+        {
+          finalWord = finalWord + word.charAt(i);
+        }
+    }
 
+  finalWord = finalWord.toLowerCase();
+  for (int i = 0; i < finalWord.length()/2; i ++)
+  {
+    if (finalWord.charAt(i) != finalWord.charAt(finalWord.length() - 1 - i))
+    {
+      return false;
+    }
+  }
+  return true;
+}
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "PalindromeChecker" };
     if (passedArgs != null) {
